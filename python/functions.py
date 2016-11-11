@@ -5,7 +5,6 @@
 #solution = multiply(4, 5) # Invoke multiply giving it the arguments 4 and 5
 #print(solution) # Expected: 20
 
-
 #def mystery(x, y, z):
 
     # ??? Your code here
