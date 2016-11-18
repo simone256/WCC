@@ -1,8 +1,5 @@
-
-
 # Parameters: a String `move`
 # Returns: Boolean for whether move is valid
-#
 # Valid moves include 'rock', 'paper', or 'scissors'`
 #
 def check_move(move):
@@ -15,6 +12,7 @@ def check_move(move):
     else:
         return False
 
+#Use the print choices below to ensure this section works:
 # print check_move('rock') # Expects: True
 # print check_move('paper') # Expects: True
 # print check_move('scissors') # Expects: True
@@ -52,6 +50,9 @@ def get_computer_move():
     moves = ['rock', 'paper', 'scissors'];
     return random.choice(moves)
 
+    print('The computer picked: ' + computer)
+
+#Use the print choices below to ensure this section works:
 #print get_computer_move() # Expected: 'rock', 'paper', or 'scissors'
 #print get_computer_move() # Expected: 'rock', 'paper', or 'scissors'
 #print get_computer_move() # Expected: 'rock', 'paper', or 'scissors'
@@ -66,7 +67,6 @@ def get_computer_move():
 # Should work for 6 different possible combinations of moveA and moveB
 # Will not be concerned with ties; i.e, moveA will never be the same as moveB
 
-
 def judge(moveA, moveB):
     if moveA == 'rock' and moveB == 'paper':
         return False
@@ -76,15 +76,47 @@ def judge(moveA, moveB):
         return True
     if moveA == 'paper' and moveB == 'scissors':
         return False
-    if MoveA == 'scissors' and moveB == 'rock':
+    if moveA == 'scissors' and moveB == 'rock':
         return False
     if moveA == 'scissors' and moveB == 'paper':
         return True
 
+    
 
-print judge('rock','paper') # Expected: False
-print judge('rock','scissors') # Expected: True
-print judge('paper','rock') # Expected: True
-print judge('paper','scissors') # Expected: False
-print judge('scissors','rock') # Expected: False
-print judge('scissors','paper') # Expected: True
+#Use the print choices below to ensure this section works:
+# print judge('rock','paper') # Expected: False
+# print judge('rock','scissors') # Expected: True
+# print judge('paper','rock') # Expected: True
+# print judge('paper','scissors') # Expected: False
+# print judge('scissors','rock') # Expected: False
+# print judge('scissors','paper') # Expected: True
+
+def play():
+    print("Welcome to Rock, Paper, Scissors!")
+
+    # Player goes
+    player = get_player_move()
+
+    # Computer goes
+    computer = get_computer_move()
+    print('The computer picked: ' + computer)
+
+    # Figure out who won
+    # Print results; either: `Tie`, `You Won!`, or `The computer won.`
+    if player == computer:
+        print("It's a tie")
+    elif (judge(player, computer)) == True:
+        print("You won!")
+    else:
+        print("The computer won.")
+
+    # Prompt to play again
+    play_again = raw_input('Play again? Type `y` or `n`: ')
+
+    if(play_again == 'y'):
+        play()
+    else:
+        print('Thanks for playing!')
+
+# Run the game
+play()
